@@ -4,9 +4,6 @@
 #include <stdbool.h>
 #include <math.h>
 
-//defaults
-int score = 0;
-
 //get user's choice
 char getchoice() { 
 	char choice;
@@ -35,11 +32,11 @@ int ask_question(int min, int max) {
 	bool x;
 		
 	srand(time(NULL));
-	char mathSym[] = "-+";
-	operand = mathSym[rand() % (sizeof mathSym - 1)];
+	char char1[] = "-+";
+	operand = char1[rand() % (sizeof char1 - 1)];
 	num1 = rand() % max + min;
 	num2 = rand() % max + min;
-	result = num1 - (num2*(operand - 50));
+	result = num1 - (num2*(operand - 44));
 	
 	printf("What is %d %c %d?\t",num1, operand, num2);
 	scanf("%d%*c", &ans);
@@ -51,25 +48,6 @@ int ask_question(int min, int max) {
 		printf("Incorrect! The correct answer was %d.\n\n", result);
 		x = false; }
 	return (x); }
-
-//calculate percentages
-void percentageScore() {
-// 	printf("Test complete.\n");
-// 	int percentage = (score / 5.0)*100;
-// 	//using ld to return long int when we round off the %
-// 	// printf("You scored %d/%d (%ld%c).\n", score, questions, lround(+percentage), '%');
-	if(percentage >= 80){
-		printf("Your grade is a High Distinction!");}
-	else if(percentage >= 70){
-		printf("Your grade is a Distinction!");}
-	else if(percentage >= 60){
-		printf("Your grade is a Credit!");}
-	else if(percentage >= 50){
-		printf("Your grade is a Pass!");}
-	else{
-		printf("Your grade is a Fail!");}
-	break; //end case 1
-}
 
 //main program
 int main() 
@@ -120,14 +98,22 @@ int main()
 					}
 				} //end for loop
 				
-
-
-				// calculate part
+				//calculate part
 				printf("Test complete.\n");
 				int percentage = (score / 5.0)*100;
 				//using ld to return long int when we round off the %
 				printf("You scored %d/%d (%ld%c).\n", score, questions, lround(+percentage), '%');
-				percentageScore();
+				if(percentage >= 80){
+					printf("Your grade is a High Distinction!");}
+				else if(percentage >= 70){
+					printf("Your grade is a Distinction!");}
+				else if(percentage >= 60){
+					printf("Your grade is a Credit!");}
+				else if(percentage >= 50){
+					printf("Your grade is a Pass!");}
+				else{
+					printf("Your grade is a Fail!");}
+				break; //end case 1
 	
 			//same as case 1
 			case '2':
