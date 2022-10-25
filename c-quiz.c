@@ -1,5 +1,24 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
+#include <time.h>
+
+int min_lower=1, min_upper=10, count=10, max_lower=10, max_upper=100;
+char operands [][100]={
+ "+","-","*","/"
+};
+
+void minimum(){
+ srand(time(0));
+ int min_num = (rand() % (min_upper-min_lower+1)+min_lower);
+ printf("%d ", min_num);
+}
+
+void maximum(){
+ srand(time(0));
+ int max_num = (rand() % (max_num - max_lower+1) + max_lower);
+ printf("%d", max_num);
+}
 
 int main() {
     //introduce option
